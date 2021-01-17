@@ -8,8 +8,9 @@
 import UIKit
 
 
-class DetailsController: UIViewController {
+class DetailsViewController: UIViewController {
     
+    @IBOutlet weak var detailsTableView: UITableView!
     
     
     
