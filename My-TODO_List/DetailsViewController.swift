@@ -8,17 +8,26 @@
 import UIKit
 
 
-class DetailsViewController: UIViewController {
+class DetailsViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var detailsTableView: UITableView!
+   
     
+    @IBOutlet weak var TextDetails: UITextView!
     
     
     override func viewDidLoad() {
    
         super.viewDidLoad()
         
+        TextDetails.text = ""
+        
         
     }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        TextDetails.text = textField.text
+        
+        textField.resignFirstResponder()
+            return true
+        }
     
 }

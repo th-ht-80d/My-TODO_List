@@ -20,16 +20,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     
-    //詳細画面移動
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("tapped table view")
-        
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let detailsViewController = storyboard.instantiateViewController(withIdentifier: "DetailsViewController")
-        navigationController?.pushViewController(detailsViewController, animated: true)
-        
-        
-    }
+ 
     
     
     @IBAction func addBtnAction(_ sender: Any) {
