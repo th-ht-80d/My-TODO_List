@@ -10,13 +10,13 @@ import UIKit
 
 class DetailsViewController: UIViewController, UITextFieldDelegate {
     
-   
+    
     
     @IBOutlet weak var TextDetails: UITextView!
     
     
     override func viewDidLoad() {
-   
+        
         super.viewDidLoad()
         
         TextDetails.text = ""
@@ -27,7 +27,7 @@ class DetailsViewController: UIViewController, UITextFieldDelegate {
         TextDetails.text = textField.text
         
         textField.resignFirstResponder()
-            return true
-        }
+        return true
+    }
     
 }
