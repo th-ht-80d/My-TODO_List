@@ -118,7 +118,7 @@
                                 <rect key="frame" x="164" y="327" width="87" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="43"/>
-                                <state key="normal" title="追加">
+                                <state key="normal" title="送信">
                                     <color key="titleColor" systemColor="systemPurpleColor"/>
                                 </state>
                                 <connections>
