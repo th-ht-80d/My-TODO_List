@@ -1,16 +1,16 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var tableView: UITableView!
-
+    
     // テーブルに表示するデータの箱
     var todoList = [String]()
     // UserDefaultsのインスタンスの生成
     let userDefaults = UserDefaults.standard
-
     
-  
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // データ読み込み
@@ -18,18 +18,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             todoList.append(contentsOf: storedTodoList)
         }
     }
-
     
-    //詳細画面移動
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("tapped table view")
-        
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let detailsViewController = storyboard.instantiateViewController(withIdentifier: "DetailsViewController")
-        navigationController?.pushViewController(detailsViewController, animated: true)
-        
-        
-    }
     
     
     @IBAction func addBtnAction(_ sender: Any) {
@@ -40,7 +29,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             if let textField = alertController.textFields?.first {
                 self.todoList.insert(textField.text!, at: 0)
                 self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: UITableView.RowAnimation.right)
-
+                
                 // 追加した内容を保存
                 self.userDefaults.set(self.todoList, forKey: "todoList")
             }
@@ -50,12 +39,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         alertController.addAction(cancelButton)
         present(alertController, animated: true, completion: nil)
     }
-
+    
     // セルの数を指定
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todoList.count
     }
-
+    
     // セルの中身を設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for: indexPath)
@@ -63,7 +52,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.textLabel?.text = todoTitle
         return cell
     }
-
+    
     // セルの削除機能
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
@@ -75,6 +64,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         
-       
+        
     }
 }
