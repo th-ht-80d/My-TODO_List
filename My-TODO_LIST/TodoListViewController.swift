@@ -5,11 +5,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     
     // テーブルに表示するデータの箱
-    var todoList = [String]()
+    var todoList = [String?]()
     // UserDefaultsのインスタンスの生成
     let userDefaults = UserDefaults.standard
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,15 +17,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    
-    
-    @IBAction func addBtnAction(_ sender: Any) {
+    @IBAction func didTopTodoAddButton(_ sender: UIBarButtonItem) {
+        
+        
         let alertController = UIAlertController(title: "TODOリスト追加", message: "今日は何をしますか？", preferredStyle: UIAlertController.Style.alert)
         alertController.addTextField(configurationHandler: nil)
         let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default) { (acrion: UIAlertAction) in
             //OKをタップした時の処理
             if let textField = alertController.textFields?.first {
-                self.todoList.insert(textField.text!, at: 0)
+                self.todoList.insert(textField.text, at: 0) //！削除
                 self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: UITableView.RowAnimation.right)
                 
                 // 追加した内容を保存
@@ -56,14 +54,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // セルの削除機能
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
-            print(todoList)
             todoList.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath as IndexPath], with: UITableView.RowAnimation.automatic)
             // 削除した内容を保存
             userDefaults.set(todoList, forKey: "todoList")
         }
-        
-        
-        
     }
 }

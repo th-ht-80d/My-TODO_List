@@ -51,7 +51,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="RhC-Ic-ss3">
                             <color key="tintColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="addBtnAction:" destination="BYZ-38-t0r" id="TOL-ge-o2M"/>
+                                <action selector="DidTopTodoAddButton:" destination="BYZ-38-t0r" id="vvZ-qn-Ag8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -94,46 +94,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="STW-ui-RdY">
-                                <rect key="frame" x="70" y="246" width="274" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kxk-JH-NVI">
+                                <rect key="frame" x="58" y="246" width="298" height="510"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="v9x-TC-PkN" id="tAY-VC-7h0"/>
-                                </connections>
-                            </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Kxk-JH-NVI">
-                                <rect key="frame" x="70" y="496" width="274" height="330"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3HW-8L-ctm">
-                                <rect key="frame" x="164" y="327" width="87" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="43"/>
-                                <state key="normal" title="送信">
-                                    <color key="titleColor" systemColor="systemPurpleColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="DetailsAdd:" destination="v9x-TC-PkN" eventType="touchUpInside" id="F8y-wV-5lh"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="詳細入れてね" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33j-Uw-kNy">
+                                <rect key="frame" x="0.0" y="159" width="414" height="34"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                <color key="textColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="41j-v2-pUj"/>
-                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="41j-v2-pUj" firstAttribute="bottom" secondItem="Kxk-JH-NVI" secondAttribute="bottom" constant="106" id="3Mx-Ly-qeN"/>
+                            <constraint firstItem="Kxk-JH-NVI" firstAttribute="top" secondItem="41j-v2-pUj" secondAttribute="top" constant="158" id="Apx-af-Z5c"/>
+                            <constraint firstItem="Kxk-JH-NVI" firstAttribute="top" secondItem="33j-Uw-kNy" secondAttribute="bottom" constant="53" id="PBS-Jl-sFL"/>
+                            <constraint firstItem="33j-Uw-kNy" firstAttribute="leading" secondItem="41j-v2-pUj" secondAttribute="leading" id="TBU-01-quY"/>
+                            <constraint firstItem="41j-v2-pUj" firstAttribute="trailing" secondItem="33j-Uw-kNy" secondAttribute="trailing" id="WZK-6p-pBb"/>
+                            <constraint firstItem="41j-v2-pUj" firstAttribute="trailing" secondItem="Kxk-JH-NVI" secondAttribute="trailing" constant="58" id="ZqG-TA-ico"/>
+                            <constraint firstItem="33j-Uw-kNy" firstAttribute="top" secondItem="41j-v2-pUj" secondAttribute="top" constant="71" id="hts-Ur-ev5"/>
+                            <constraint firstItem="Kxk-JH-NVI" firstAttribute="leading" secondItem="41j-v2-pUj" secondAttribute="leading" constant="58" id="pD9-cI-SMU"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="詳細" id="vsc-OW-X1Z"/>
                     <connections>
-                        <outlet property="DetailsButton" destination="3HW-8L-ctm" id="Pon-Lk-CTB"/>
-                        <outlet property="TextDetails" destination="Kxk-JH-NVI" id="Jgr-Wi-VcV"/>
-                        <outlet property="TextEnter" destination="STW-ui-RdY" id="qrL-bm-Dxm"/>
+                        <outlet property="TextDetailstableView" destination="Kxk-JH-NVI" id="0fv-cB-vQp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bQ0-Eo-ljb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -142,17 +132,8 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemTealColor">
-            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

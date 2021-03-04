@@ -7,41 +7,27 @@
 
 import UIKit
 
-var DetailsText = [String]()
-
-class DetailsViewController: UIViewController, UITextFieldDelegate {
+class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
-    
-    
-    @IBOutlet weak var TextDetails: UITextView!
-    
-    
-    @IBAction func DetailsAdd(_ sender: Any) {
-        
-        DetailsText.append(TextDetails.text!)
-        
-        //追加ボタンを押したらフィールドを空にする
-        TextDetails.text = ""
-    }
-    
+    @IBOutlet weak var TextDetailstableView: UITextView!
+    // テーブルに表示するデータの箱
+    var textDetails = [String]()
+    // UserDefaultsのインスタンスの生成
+    let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        TextDetailstableView.backgroundColor = UIColor.white // 白
         
-        TextDetails.text = ""
-        
-    }
-    
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        TextDetails.text = textField.text
-        
-        textField.resignFirstResponder()
-        return true
-        
-        
-        
+        // データ読み込み
+        if let storedTodoList = userDefaults.array(forKey: "textDetails") as? [String] {
+            textDetails.append(contentsOf: storedTodoList)
+            
+            TextDetailstableView.text = ""
+            // 追加した内容を保存
+            self.userDefaults.set(self.textDetails, forKey: "textDetails")
+            
+        }
     }
     
 }
